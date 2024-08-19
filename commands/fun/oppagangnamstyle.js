@@ -24,11 +24,15 @@ module.exports = {
 
         // Execute Oppa Gangnam Style commands on the specified player
         await rcon.send(`execute as ${playerName} at ${playerName} run tellraw @a ["",{"text":"🎶 ","color":"yellow"},{"text":"Oppa Gangnam Style!","color":"gold","bold":true},{"text":" 🎶","color":"yellow"}]`);
-        await rcon.send(`execute as ${playerName} at ${playerName} run playsound minecraft:music_disc.11 master ${playerName} ~ ~ ~ 1 1`);
-        await rcon.send(`execute as ${playerName} at ${playerName} run summon minecraft:firework_rocket ~ ~1 ~ `);
+        await rcon.send(`execute as ${playerName} at ${playerName} run tellraw @a ["",{"text":"🎉 ","color":"yellow"},{"text":"${playerName} ","color":"gold","bold":true},{"text":"is the Dance Master now!","color":"light_purple","bold":true},{"text":" 🎉","color":"yellow"}]`);
+        await rcon.send(`execute as ${playerName} at ${playerName} run playsound minecraft:music_disc.11 master @a ~ ~ ~ 0.5 1`);
+        await rcon.send(`execute as ${playerName} at ${playerName} run summon minecraft:firework_rocket ~ ~1 ~`);
         await rcon.send(`execute as ${playerName} at ${playerName} run tellraw @a ["",{"text":"💥 ","color":"red"},{"text":"Fireworks!","color":"aqua","bold":true},{"text":" 💥","color":"red"}]`);
         await rcon.send(`execute as ${playerName} at ${playerName} run tellraw @a ["",{"text":"Get ready to dance!","color":"light_purple","bold":true,"italic":true}]`);
         await rcon.send(`execute as ${playerName} at ${playerName} run effect give @a minecraft:speed 10 2 true`);
+        await rcon.send(`execute as ${playerName} at ${playerName} run effect give ${playerName} minecraft:speed 120 2 true`);
+        await rcon.send(`execute as ${playerName} at ${playerName} run effect give ${playerName} minecraft:jump_boost 120 1 true`);
+        await rcon.send(`execute as ${playerName} at ${playerName} run particle minecraft:happy_villager ~ ~1 ~ 0.5 1 0.5 0 100 force @a`);
 
 
         await interaction.reply(`Oppagangnamstyle triggered for ${playerName}! 🎉`);
