@@ -19,9 +19,9 @@ module.exports = {
         const rcon = await Rcon.connect(mcConfig);
         for(var i = 0; i < 5; i++)
         {
-            await rcon.send('execute as WujekRadek at WujekRadek run summon minecraft:zombie ~20 ~ ~');
+            await rcon.send('execute as laurka39 at laurka39 run playsound minecraft:entity.creeper.primed master laurka39 ~ ~ ~-1 1 1');
         }
-        await interaction.reply('Zombies spawned');
+        await interaction.reply('Laura shat herself ;D');
         
             
         rcon.end();
