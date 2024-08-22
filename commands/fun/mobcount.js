@@ -1,11 +1,12 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Rcon } = require('rcon-client');
+require('dotenv').config({ path: '../../.env' });
 
 // Minecraft server configuration
 const mcConfig = {
-    host: 'localhost',
-    port: 25575,
-    password: 'password'
+    host: process.env.RCON_HOST,
+    port: parseInt(process.env.RCON_PORT, 10),
+    password: process.env.RCON_PASSWORD
 };
 
 const TIMER_DURATION = 10 * 60 * 1000;

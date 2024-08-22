@@ -1,11 +1,12 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Rcon } = require('rcon-client');
+require('dotenv').config({ path: '../../.env' });
 
 // Minecraft server configuration
 const mcConfig = {
-    host: 'localhost', // Replace with your server's IP if remote
-    port: 25575,       // Default RCON port
-    password: 'password' // RCON password
+    host: process.env.RCON_HOST,
+    port: parseInt(process.env.RCON_PORT, 10),
+    password: process.env.RCON_PASSWORD
 };
 
 module.exports = {
@@ -19,6 +20,9 @@ module.exports = {
                 .setDescription('Player to give a cool shovel to.')
                 .setRequired(true)),
     async execute(interaction) {
+        console.log("RCON_HOST:", process.env.RCON_HOST);
+console.log("RCON_PORT:", process.env.RCON_PORT);
+console.log("RCON_PASSWORD:", process.env.RCON_PASSWORD);
         const rcon = await Rcon.connect(mcConfig);
         const playerName = interaction.options.getString('player', true);
 

@@ -1,11 +1,12 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Rcon } = require('rcon-client');
+require('dotenv').config({ path: '../../.env' });
 
 // Minecraft server configuration
 const mcConfig = {
-    host: 'localhost', // Replace with your server's IP if remote
-    port: 25575,       // Default RCON port
-    password: 'password' // RCON password
+    host: process.env.RCON_HOST,
+    port: parseInt(process.env.RCON_PORT, 10),
+    password: process.env.RCON_PASSWORD
 };
 
 module.exports = {
